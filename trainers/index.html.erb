@@ -1,0 +1,7 @@
+<h1>Welcome Trainers</h1>
+
+<ol>
+<% @trainers.each do |trainer| %>
+  <li><%= link_to trainer.name, trainer %></li>
+<% end %>
+</ol>

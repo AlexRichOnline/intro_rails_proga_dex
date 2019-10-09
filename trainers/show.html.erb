@@ -1,0 +1,12 @@
+<h1>Meet <%= @trainer.name %></h1>
+
+<p><%= @trainer.name %> is one of our original 8 Trainers, and a gym leader.</p>
+
+<p><%= @trainer.name %>'s goal/motto: <span style="font-style: italic"><%= @trainer.goal %></span></p>
+
+<strong>This is <%= @trainer.name %>'s team - <%= @trainer.teams.first.name %> -</strong>
+<ul>
+  <%@trainer.programming_monsters.each do |monster|%>
+    <li><%= link_to monster.name, "#{monsters_path}/#{monster.name}" %></li>
+  <% end %>
+</ul>

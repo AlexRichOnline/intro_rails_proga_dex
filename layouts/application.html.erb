@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IntroRailsProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav id="header_nav">
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', permalink_path(permalink: 'about_us') %></li>
+          <li><%= link_to 'Trainers', trainers_path %></li>
+          <li><%= link_to 'Gyms', gyms_path %></li>
+          <li><%= link_to 'Monsters', monsters_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <%= form_tag( monsters_path, method: "get") do %>
+        <%= label_tag(:search, "Search for a Monster:") %>
+        <%= text_field_tag(:search, params[:search]) %>
+        <%= submit_tag("Search", :name => nil) %>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<h1><%=@monster.name %></h1>
+<% monster_type = @monster.monster_type%>
+<% if monster_type.include?(',') %>
+  <% monster_type = monster_type.split(',').join(' /') %>
+<% end %>
+
+<p><%=@monster.name %> is a <%= monster_type %> type programming monster</p>
+
+<%= image_tag @monster.image, alt: @monster.name%>

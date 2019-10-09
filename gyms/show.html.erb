@@ -1,0 +1,10 @@
+<h1><%= @gym.name %></h1>
+
+<p>The <%= @gym.name %> gym is located at <%= @gym.location %> and currently has <%= pluralize(@gym.trainers.count, 'trainer') %></p>
+
+<strong><%= @gym.name %>'s trainers</strong>
+<ol>
+<% @gym.trainers.each do |trainer| %>
+  <li><%= link_to trainer.name, trainer %></li>
+<% end %>
+</ol>

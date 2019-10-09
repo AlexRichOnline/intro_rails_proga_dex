@@ -1,0 +1,87 @@
+<h1>Collection Navigation</h1>
+<p>This page displays all of the data currently in this rails application</p>
+
+<%= image_tag 'rails_erd.png', alt: 'erd for tables' %>
+
+<table>
+<caption>Monsters Collection</caption>
+<tr>
+  <th>Name</th>
+  <th>Monster type{s}</th>
+  <th>sprit</th>
+  <th>image</th>
+</tr>
+<% @monsters.each do |monster|%>
+<tr>
+  <td><%= monster.name %></td>
+  <td><%= monster.monster_type %></td>
+  <td><%= monster.sprit %></td>
+  <td><%= monster.image %></td>
+</tr>
+<% end %>
+</table>
+
+<table>
+<caption>Trainers Collection</caption>
+<tr>
+  <th>Name</th>
+  <th>Goal or Motto</th>
+  <th>Gym</th>
+</tr>
+<% @trainers.each do |trainer|%>
+<tr>
+  <td><%= trainer.name %></td>
+  <td><%= trainer.goal %></td>
+  <td><%= trainer.gym.name %></td>
+</tr>
+<% end %>
+</table>
+
+<table>
+<caption>Gyms Collection</caption>
+<tr>
+  <th>Name</th>
+  <th>Location</th>
+  <th>Trainers</th>
+</tr>
+<% @gyms.each do |gym|%>
+<tr>
+  <td><%= gym.name %></td>
+  <td><%= gym.location %></td>
+  <% trainers_names = gym.trainers.pluck(:name) %>
+  <td><%= trainers_names.join %></td>
+</tr>
+<% end %>
+</table>
+
+<table>
+<caption>Teams Collection</caption>
+<tr>
+  <th>Name</th>
+  <th>Monsters</th>
+  <th>Trainers</th>
+</tr>
+<% @teams.each do |team|%>
+<tr>
+  <td><%= team.name %></td>
+  <td><%= team.programming_monster.name %></td>
+  <td><%= team.trainer.name %></td>
+</tr>
+<% end %>
+</table>
+
+<table>
+<caption>Pages Collection</caption>
+<tr>
+  <th>Title</th>
+  <th>Content</th>
+  <th>Permalink</th>
+</tr>
+<% @pages.each do |page|%>
+<tr>
+  <td><%= page.title %></td>
+  <td><%= page.content %></td>
+  <td><%= page.permalink %></td>
+</tr>
+<% end %>
+</table>

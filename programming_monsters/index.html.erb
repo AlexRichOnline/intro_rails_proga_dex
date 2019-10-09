@@ -1,0 +1,13 @@
+<h1>Progra-Dex</h1>
+<%= paginate @monsters %>
+
+<% @monsters.each do |monster| %>
+   <ul>
+    <li>
+      <p><span style="font-weight:bold"><%= link_to monster.name, "#{monsters_path}/#{monster.name}" %></span></p>
+      <%= image_tag monster.sprit, alt: monster.name %>
+    </li>
+  </ul>
+<% end %>
+
+<%= paginate @monsters %>

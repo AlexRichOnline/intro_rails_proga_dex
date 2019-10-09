@@ -1,0 +1,10 @@
+<h1>The Programming Monster League Challenge</h1>
+
+<p>Welcome to the Programming Monster League!</p>
+<p>The League is made up of <%= @gyms.count %> gyms</p>
+
+<ol>
+<% @gyms.each do |gym| %>
+  <li><%= link_to gym.name, gym %></li>
+<% end %>
+</ol>
